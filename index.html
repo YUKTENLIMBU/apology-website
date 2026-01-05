@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>An Apology 🤍</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>An apology from your cute human being</h1>
+
+    <button id="openBtn" class="open-btn">Open my apology 🤍</button>
+
+    <div id="messageBox" class="message hidden">
+      <p data-text="Hun,"></p>
+      <p data-text="I want to be honest."></p>
+      <p data-text="I know I went quiet, and I know that hurt you."></p>
+      <p data-text="Even though I was on a trip, I should have shown up better."></p>
+      <p data-text="You were on my mind more than you know."></p>
+      <p data-text="I missed you a lot hun."></p>
+      <p data-text="You are the dearest to me, and I never want you to feel ignored or unimportant."></p>
+      <p data-text="I care about you deeply."></p>
+      <p data-text="I’m here, and you truly matter to me."></p>
+    </div>
+
+    <!-- Question appears later -->
+    <div id="questionBox" class="question hidden">
+      <p>Will you forgive me? 🥺</p>
+      <button onclick="accepted()">Yes</button>
+      <button onclick="accepted()">Yes</button>
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const openBtn = document.getElementById("openBtn");
+    const messageBox = document.getElementById("messageBox");
+    const questionBox = document.getElementById("questionBox");
+    const lines = messageBox.querySelectorAll("p[data-text]");
+    const music = document.getElementById("music");
+
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeWriter() {
+      if (lineIndex >= lines.length) {
+        // After all lines finished, show question
+        questionBox.classList.remove("hidden");
+        return;
+      }
+
+      const text = lines[lineIndex].dataset.text;
+
+      if (charIndex < text.length) {
+        lines[lineIndex].textContent += text.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, 40);
+      } else {
+        charIndex = 0;
+        lineIndex++;
+        setTimeout(typeWriter, 600); // pause between lines
+      }
+    }
+
+    openBtn.addEventListener("click", () => {
+      openBtn.style.display = "none";
+      messageBox.classList.remove("hidden");
+      music.currentTime = 0; // start from beginning
+      music.play();
+      typeWriter();
+    });
+
+    function accepted() {
+  // Replace the question box content with the final message
+  questionBox.innerHTML = `<p style="font-size:1.3rem; line-height:1.8; color:#fff;">
+    Thank you for giving me another chance. I love you endlessly ❤️. I LOVE YOU 3000
+  </p>`;
+}
+
+
+    /* Floating hearts */
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💙";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>

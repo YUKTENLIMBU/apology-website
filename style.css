@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #87ceeb; /* fallback */
+  background-image:
+    linear-gradient(rgba(135,206,235,0.6), rgba(248,180,200,0.6)),
+    url("photo.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px 200px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+/* Open Button */
+.open-btn {
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #87ceeb, #f8b4c8);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.open-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Message */
+.message {
+  margin-top: 60px;
+  text-align: left;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.message p {
+  margin-bottom: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Question */
+.question {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.question p {
+  margin-bottom: 20px;
+}
+
+.question button {
+  margin: 10px;
+  padding: 12px 26px;
+  border-radius: 25px;
+  border: none;
+  background: #ffffff;
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.question button:hover {
+  transform: scale(1.05);
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 18px;
+  animation: floatHeart linear infinite;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+@keyframes floatHeart {
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}
