@@ -7,6 +7,27 @@
 </head>
 
 <body>
+<script>
+  const password = "yug4444";  💙
+  const userInput = prompt("This page is only for you 💙\nEnter the secret word:");
+
+  if (userInput !== password) {
+    document.body.innerHTML = `
+      <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:#87ceeb;
+        color:white;
+        font-family:sans-serif;
+        text-align:center;
+      ">
+        <h2>Access denied 💔</h2>
+      </div>
+    `;
+  }
+</script>
 
   <div class="container">
     <h1>An apology from your cute human being</h1>
@@ -101,3 +122,4 @@
 
 </body>
 </html>
+
